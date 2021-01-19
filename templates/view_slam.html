@@ -1,0 +1,57 @@
+{% extends 'slam_base.html' %}
+{% load static %}
+{% block title %}
+    Friends Slam Book Home Page
+{% endblock %}
+{% block body %}
+    <style>
+    @media print {
+        .print{display: block}
+        .btn-print {display: none}
+    }
+    </style>
+    {% for x in messages %}
+        <h3 class="display-4" style="color: lawngreen; font-size: 30px; text-align: center">{{ x }}</h3>
+    {% endfor %}
+    <br>
+    <div>
+        <div class="row" style="padding: 10px">
+        <div class="col-md-12">
+            <div class="card card-body" style=" background-color: lightyellow">
+                <h3 class="display-4" style="font-size: 35px; color: #0062cc" align="center">Slamp Book...!!</h3>
+                <a href="{% url 'make_slam' %}" class="btn btn-outline-primary btn-sm">Add Slam</a>
+                <hr>
+                <div class="print">
+                <table class="table">
+                    <tr style="background-color: lightgray; color: #0062cc">
+                        <th>Name</th>
+                        <th>Nickname</th>
+                        <th>Address</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>DoB</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    {% for x in slams %}
+                    <tr style="color: #16181b">
+                        <td>{{ x.my_name|capfirst }}</td>
+                        <td>{{ x.my_nickname|capfirst }}</td>
+                        <td>{{ x.my_address|capfirst }}</td>
+                        <td>{{ x.my_mobile_number }}</td>
+                        <td>{{ x.my_email }}</td>
+                        <td>{{ x.my_birth_day }}</td>
+                        <td><a href="{% url 'view_friend' %}?slam_no={{ x.slam_no }}" class="btn btn-outline-warning btn-sm">View</a> </td>
+                        <td><a href="{% url 'edit_friend' %}?slam_no={{ x.slam_no }}" class="btn btn-outline-info btn-sm">Edit</a> </td>
+                        <td><a href="{% url 'remove_friend' %}?slam_no={{ x.slam_no }}" class="btn btn-outline-danger btn-sm">Remove</a> </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

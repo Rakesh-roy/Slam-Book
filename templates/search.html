@@ -1,0 +1,56 @@
+{% extends 'slam_base.html' %}
+{% load static %}
+{% block title %}
+    Friends Slam Book Home Page
+{% endblock %}
+{% block body %}
+    <br>
+    <h3 style="font-size: 30px; color: #16181b; padding-left: 200px">Search Results :</h3>
+    {% if search|length < 1 %}
+        <div style="padding-left: 200px">
+        <p>no search results</p>
+        <p>Your search -  <strong>{{ name }}</strong> - did not match any documents.</p>
+        Suggestions:
+            <ul>
+                <li>Make sure that all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords.</li>
+            </ul>
+        </div>
+    {% else %}
+    <br>
+
+    <div class="row" style="padding-left: 200px">
+        <div class="col-md-10" style=" background-color: lightcyan">
+            <div class="card card-body" style=" background-color: lightyellow">
+                <table class="table" align="center">
+                    <tr style="background-color: lightgray; color: #0062cc">
+                        <th>Name</th>
+                        <th>Nickname</th>
+                        <th>Address</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>DoB</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    {% for x in search %}
+                    <tr style="color: #16181b">
+                        <td>{{ x.my_name|capfirst }}</td>
+                        <td>{{ x.my_nickname|capfirst }}</td>
+                        <td>{{ x.my_address|capfirst }}</td>
+                        <td>{{ x.my_mobile_number }}</td>
+                        <td>{{ x.my_email }}</td>
+                        <td>{{ x.my_birth_day }}</td>
+                        <td><a href="{% url 'view_friend' %}?slam_no={{ x.slam_no }}" class="btn btn-outline-warning btn-sm">View</a> </td>
+                        <td><a href="{% url 'edit_friend' %}?slam_no={{ x.slam_no }}" class="btn btn-outline-info btn-sm">Edit</a> </td>
+                        <td><a href="{% url 'remove_friend' %}?slam_no={{ x.slam_no }}" class="btn btn-outline-danger btn-sm">Remove</a> </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

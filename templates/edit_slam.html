@@ -1,0 +1,98 @@
+{% extends 'slam_base.html' %}
+{% load static %}
+{% block title %}
+    Friends Slam Book Home Page
+{% endblock %}
+{% block body %}
+    <br>
+    {% for x in messages %}
+        <h3 class="display-4" style="color: lawngreen; font-size: 30px; text-align: center">{{ x }}</h3>
+    {% endfor %}
+    <br>
+    <div class="row" style="padding-left: 20%">
+        <div class="col-md-7" style=" background-color: lightcyan">
+            <div class="card card-body" style=" background-color: lightyellow">
+                <h3 class="display-4" style="font-size: 35px; color: #0062cc" align="center">Update Info...!!</h3>
+                <hr>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="user" required="" id="id_user" value="{{ request.user.id }}">
+                    <table class="table-sm" align="center" style="color: #e0a800">
+{#                            <td colspan="4" align="right"><input type="hidden" name="user" required="" id="id_user" value="{{ form.user }}"></td>#}
+
+                        <tr>
+                            <td align="right">{{ form.my_name.label }}</td>
+                            <td>{{ form.my_name }}</td>
+                            <td align="right">{{ form.my_nickname.label }}</td>
+                            <td>{{ form.my_nickname }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_address.label }}</td>
+                            <td>{{ form.my_address }}</td>
+                            <td align="right">{{ form.my_mobile_number.label }}</td>
+                            <td>{{ form.my_mobile_number }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_email.label }}</td>
+                            <td>{{ form.my_email }}</td>
+                            <td align="right">{{ form.my_birth_day.label }}</td>
+                            <td>{{ form.my_birth_day }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_crushes.label }}</td>
+                            <td>{{ form.my_crushes }}</td>
+                            <td align="right">{{ form.my_happiest_moment.label }}</td>
+                            <td>{{ form.my_happiest_moment }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_favourite_dishes.label }}</td>
+                            <td>{{ form.my_favourite_dishes }}</td>
+                            <td align="right">{{ form.my_favourite_sports.label }}</td>
+                            <td>{{ form.my_favourite_sports }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_favourite_places.label }}</td>
+                            <td>{{ form.my_favourite_places }}</td>
+                            <td align="right">{{ form.my_favourite_actor.label }}</td>
+                            <td>{{ form.my_favourite_actor }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_favourite_actress.label }}</td>
+                            <td>{{ form.my_favourite_actress }}</td>
+                            <td align="right">{{ form.my_favourite_song.label }}</td>
+                            <td>{{ form.my_favourite_song }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_goal.label }}</td>
+                            <td>{{ form.my_goal }}</td>
+                            <td align="right">{{ form.opinion_about_you.label }}</td>
+                            <td>{{ form.opinion_about_you }}</td>
+                        </tr>
+                        <tr>
+                            <td align="right">{{ form.my_profile.label }}</td>
+                            <td>{{ form.my_profile }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td align="center" colspan="2"><button type="submit" class="btn btn-outline-info btn-block">Save Slam</button></td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+{#                    <table class="table-sm" align="center" style="color: #e0a800">#}
+{#                        <tr>#}
+{#                            <td align="right">{{ form }}</td>#}
+{#                            <td align="center" colspan="2"><button type="submit" class="btn btn-outline-info btn-block">Update Slam</button></td>#}
+{#                        </tr>#}
+{#                    </table>#}
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+{% endblock %}

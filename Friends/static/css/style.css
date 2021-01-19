@@ -1,0 +1,12 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.col-lg-4{
+    padding-left: 50%;
+}
+
+.jumbotron ul li a{
+    padding-left: 20px;
+}

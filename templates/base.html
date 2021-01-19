@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <link rel="icon" href="{% static 'images/icon.ico' %}">
+
+    <style>
+        .jumbotron ul li a:hover .fa{
+            transform: rotateY(360deg);
+        }
+        .nav-link{
+            padding-left: 50px;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+{#<h1 class="display-4" align="center" style="color: white;background: white!important; background-color: #0062cc; height: 80px"><img src="{% static 'images/LogoMakr-3jmtXC.png' %}" style="width: 10%">Friends Slam Book</h1>#}
+{#<hr>#}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-family: 'Baloo 2', cursive;font-size: 22px">
+      <a class="nav-link active" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"> </i>&nbsp;&nbsp;Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login_user' %}">User Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_user' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+{#    <div class="">#}
+{#        <div class="col-lg-4" style="padding-left: 40%">#}
+{#            <ul style="display: flex;text-decoration: none;list-style: none;align-items: center">#}
+{#                <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a> </li>#}
+{#                <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>#}
+{#                <li><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>#}
+{#            </ul>#}
+{#        </div>#}
+{##}
+{#        <table border="2" align="center" style="width: 75%; line-height: 38px">#}
+{##}
+{#            <tr>#}
+{#                <td>#}
+{#                    <ul>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                    </ul>#}
+{#                </td>#}
+{##}
+{#                <td>#}
+{#                    <ul>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                    </ul>#}
+{#                </td>#}
+{##}
+{#                <td>#}
+{#                    <ul>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                        <li><a href="">Link</a></li>#}
+{#                    </ul>#}
+{#                </td>#}
+{#            </tr>#}
+{#        </table>#}
+{#    </div>#}
+{#    <div class="footer pb-2">#}
+{#        <p align="center">Copyright ©2020 All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i> by Rakesh Roy</p>#}
+{#    </div>#}
+{##}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

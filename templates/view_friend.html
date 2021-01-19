@@ -1,0 +1,112 @@
+{% extends 'slam_base.html' %}
+{% load static %}
+{% block title %}
+    Friends Slam Book Home Page
+{% endblock %}
+{% block body %}
+    <style>
+    @media print {
+        .print{display: contents}
+    }
+    </style>
+    {% for x in messages %}
+        {{ x }}
+    {% endfor %}
+    <br>
+    <div class="row" style="padding-left: 200px">
+        <div class="col-md-10">
+            <div class="card card-body">
+                <h3 class="display-4">{{ slams.my_name|capfirst }}</h3>
+                <hr>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="print">
+                            <div class="card card-body">
+                            <table class="table-sm">
+                                <tr>
+                                    <td>Nickname</td>
+                                    <td>{{ slams.my_nickname }}</td>
+                                    <td rowspan="5" align="right">
+                                        <div class="card card-body" style="width: 170px; height: 170px;" align="right">
+                                            {% if slams.my_profile == '' %}
+                                            <img src="{{ slams.my_profile }}" style="width: 120px; height: 150px;" alt="No Image">
+                                            {% else %}
+                                            <img src="{{ slams.my_profile.url }}" style="width: 120px; height: 150px;" alt="No Image">
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>{{ slams.my_address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile</td>
+                                    <td>{{ slams.my_mobile_number }}</td>
+                                </tr>
+                                <tr>
+                                    <td>DOB</td>
+                                    <td>{{ slams.my_birth_day }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Crushes</td>
+                                    <td>{{ slams.my_crushes }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Happiest Moment</td>
+                                    <td>{{ slams.my_happiest_moment }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Dishes</td>
+                                    <td>{{ slams.my_favourite_dishes }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Sports</td>
+                                    <td>{{ slams.my_favourite_sports }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Places</td>
+                                    <td>{{ slams.my_favourite_places }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Actor</td>
+                                    <td>{{ slams.my_favourite_actor }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Actress</td>
+                                    <td>{{ slams.my_favourite_actress }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Website</td>
+                                    <td>{{ slams.my_favourite_webiste }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Festival</td>
+                                    <td>{{ slams.my_favourite_festival }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fav Song</td>
+                                    <td>{{ slams.my_favourite_song }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Goal</td>
+                                    <td>{{ slams.my_goal }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Opinion About You</td>
+                                    <td>{{ slams.opinion_about_you }}</td>
+                                </tr>
+                            </table>
+                            </div>
+                        </div>
+                        <div class="card card-body">
+                            <button onclick="window.print()">Print Form</button>
+
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

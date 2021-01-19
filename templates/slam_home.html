@@ -1,0 +1,21 @@
+{% extends 'slam_base.html' %}
+{% load static %}
+{% block title %}
+    Friends Slam Book Home Page
+{% endblock %}
+{% block body %}
+    <style type="text/css">
+    .body{
+        background-image: url("{% static 'images/slambook.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
+    <h3 class="display-4 body" align="center" style="padding-top: 10px; padding-bottom: 30%">
+    <em>
+        <font style="font-size: 20px">“A <strong>friend</strong> is someone <br>who understands your past, <br>believes in your future, <br>and accepts you just the way you are.”</font><br></em>
+        <br>
+        Welcome To Slam Book Home Page...!!<br>
+        <a href="{% url 'make_slam' %}" class="btn btn-outline-danger btn-md">Start Adding Slams</a>
+    </h3>
+{% endblock %}
